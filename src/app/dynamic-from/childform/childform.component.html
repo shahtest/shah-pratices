@@ -1,0 +1,14 @@
+<p>childform works!</p>
+<div class="container">
+    <form  (ngSubmit)="onSubmit()"
+    #f="ngForm">
+    <div class="row">
+        <div class="col-6" *ngFor="let from of formArray" >
+<div class="form-group1">
+            <label>{{from.lable}}</label>
+       <input  class="form-control" type="{{from.fromtype}}" name="{{from?.formcontrolName}}"   ngModel  >
+        </div>
+    </div>
+    </div>
+</form>
+</div>

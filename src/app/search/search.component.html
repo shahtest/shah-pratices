@@ -1,0 +1,117 @@
+
+
+<div class="container-fluid">
+    <div class="alert alert-dark" role="alert">
+        <input class="form-control mr-sm-2" [(ngModel)] ="searchdata" type="search" placeholder="Search by login" aria-label="Search">
+      </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>S No.</th>
+                <th>Git User Profile</th>
+                <th>ID</th>
+                <th>Git login</th>
+                <th>User Type</th>
+                <th>Git Admin</th>
+                <th>Git-URL</th>
+                <th>Git Node_id</th>               
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor ="let data of githubsUser | filter:searchdata ;let i = index ">
+                <td>{{i + 1}}</td>
+                <td><img src="{{data.avatar_url}}" width="140px" alt="dev"></td>
+                <td>{{data.id}}</td>
+                <td>{{data.login}}</td>
+                <td>{{data.type}}</td>
+                <td>{{data.site_admin}}</td>
+                <td>{{data.events_url}}</td>
+                <td>{{data.node_id}}</td>
+                
+                
+                <td>
+                    <span (click)="viewUser(data)">
+                        <button type="button" class="btn btn-outline-warning">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                              </svg>
+                        </button>
+                        
+                       </span>
+                     </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<p>
+    1,20,000
+    1 lakh 20 k
+</p>
+
+<div *ngIf="modelViewData" class="modelViewData p-5"   >
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-center">
+        <img   src="{{singleDev.avatar_url}}" width="100px" alt="dev">
+    </div>
+    <div class="text-left">
+        <ul>
+            <li>
+            <strong>   events_url :</strong>   {{singleDev.events_url}}
+            </li>
+            <li>
+                <strong>  followers_url : </strong> {{singleDev.followers_url}}
+            </li>
+            <li>
+                <strong>  following_url : </strong> {{singleDev.following_url}}
+            </li>
+            <li>
+                <strong>   gists_url : </strong> {{singleDev.gists_url}}
+            </li>
+            <li>
+                <strong>   gravatar_id: </strong>  {{singleDev.gravatar_id}}
+            </li>
+            <li>
+                <strong>  html_url : </strong> {{singleDev.html_url}}
+            </li>
+            <li>
+                <strong>  id : </strong> {{singleDev.id}}
+            </li>
+            <li>
+                <strong>  login :</strong> {{singleDev.login}}
+            </li>
+            <li>
+                <strong>  node_id :</strong>  {{singleDev.node_id}}
+            </li>
+            <li>
+                <strong>    organizations_url: </strong> {{singleDev.organizations_url}}
+            </li>
+            <li>
+                <strong> received_events_url: </strong> {{singleDev.received_events_url}}
+            </li>
+            <li>
+                <strong>  repos_url: </strong> {{singleDev.repos_url}}
+            </li>
+            <li>
+                <strong>   site_admin:</strong>  {{singleDev.site_admin}}
+            </li>
+            <li>
+                <strong>   starred_url:</strong>  {{singleDev.starred_url}}
+            </li>
+            <li>
+                <strong>   subscriptions_url: </strong> {{singleDev.subscriptions_url}}
+            </li>
+            <li>
+                <strong>   type:</strong>  {{singleDev.type}}
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="float-right"  > <strong > <Button class="btn btn-primary" (click)="hideModelbox()"> X</Button></strong> </div>
+   
+</div>
+</div>
